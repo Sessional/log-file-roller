@@ -1,0 +1,28 @@
+name: log-file-roller
+version: "0.1"
+about: Handles rolling of log files with by piping the stdout of a process to it
+args:
+- file-size:
+    short: s
+    long: file-size
+    value_name: SIZE
+    help: "Used to specify what size file will trigger a roll to a new file. This is not the cap. (Default: 2MiB)"
+    takes_value: true
+- output-file:
+    short: o
+    long: output-file
+    takes_value: true
+    value_name: NAME
+    help: Sets the name prefix of the output file. File will be named (<output-file>.#)
+- file-extension:
+    short: e
+    long: file-extension
+    takes_value: true
+    value_name: EXTENSION
+    help: Sets the extension for each log file. File will be named (<output-file>.#.<extension>)
+- file-count:
+    short: "n"
+    long: file-count
+    takes_value: true
+    value_name: COUNT
+    help: The number of files to maintain when rolling files. The current file will have no number and older ones will have increasing numbers
